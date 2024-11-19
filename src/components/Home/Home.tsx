@@ -4,11 +4,6 @@ import Drawer from "../../components/Drawer/Drawer";
 import Header from "../../components/Header/Header";
 import RequestCard from "../../components/RequestCard/RequestCard";
 
-import { fetchUserAttributes } from 'aws-amplify/auth';
-import { User } from "../../interfaces/User";
-import { useState } from "react";
-
-
 const Home: React.FC = () => {
 
 
