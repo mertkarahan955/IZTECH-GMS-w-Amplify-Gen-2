@@ -35,7 +35,8 @@ export async function login(username: string, password: string)  {
     console.log(user);
   } catch (err: any) {
     console.error("Sign in error:", err);
-    alert(err.message || "An error occurred during sign-in.");
+    throw new Error(err);
+    
   }
 }
 
