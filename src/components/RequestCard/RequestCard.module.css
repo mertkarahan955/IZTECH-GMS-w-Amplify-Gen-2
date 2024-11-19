@@ -1,0 +1,21 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.ongoing {
+  background: #fff8cc;
+  border-left: 4px solid #ffc107;
+}
+
+.declined {
+  background: #ffe6e6;
+  border-left: 4px solid #dc3545;
+}
+
+.status {
+  margin: 1rem 0;
+}

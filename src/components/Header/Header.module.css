@@ -1,0 +1,25 @@
+.header {
+  background: #800000;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icons img {
+  width: 24px;
+  height: 24px;
+}
