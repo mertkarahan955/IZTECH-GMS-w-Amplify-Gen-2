@@ -1,8 +1,9 @@
 
+import Drawer from "../../../../core/components/Drawer/Drawer";
+import Header from "../../../../core/components/Header/Header";
+import RequestCard from "../../../../core/components/RequestCard/RequestCard";
 import styles from "./Home.module.css";
-import Drawer from "../../components/Drawer/Drawer";
-import Header from "../../components/Header/Header";
-import RequestCard from "../../components/RequestCard/RequestCard";
+
 
 const Home: React.FC = () => {
 

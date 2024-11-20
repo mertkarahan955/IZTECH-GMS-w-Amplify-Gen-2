@@ -1,5 +1,6 @@
 import React from "react";
-import styles from "./Login/Login.module.css";
+
+import styles from "../../app/auth/presentation/Login/Login.module.css";
 
 interface InputFieldProps {
   label: string;

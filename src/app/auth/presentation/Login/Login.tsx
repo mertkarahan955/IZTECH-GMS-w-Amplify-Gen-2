@@ -1,12 +1,15 @@
 import React, { useState, FormEvent } from "react";
 import styles from "./Login.module.css";
-import Logo from "../../assets/iztech-logo.png";
-import EdevletIcon from "../../assets/edevlet-icon.png";
-import { InputField } from "../InputField";
-import { PasswordField } from "../PasswordField";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
-import { login } from "../../api/auth";
-import { useUser } from "../../contexts/UserContext";
+import Logo from "../../../../../public/assets/iztech-logo.png";
+import EdevletIcon from "../../../../../public/assets/edevlet-icon.png";
+
+
+import { InputField } from "../../../../core/components/InputField";
+import { PasswordField } from "../../../../core/components/PasswordField";
+import { DI } from "../../../../core/injection/DependencyInjection";
+import { useUser } from "../../../../core/contexts/UserContext";
+import { useNavigate } from "react-router-dom";
+
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -14,23 +17,29 @@ const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate(); // React Router navigation hook
-  const {fetchAndSetUser} = useUser();
+  const {setUser} = useUser();
+  const navigate = useNavigate();
+
+  
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault(); // Prevent page refresh
-    setError(null); // Reset errors
-    setLoading(true); // Show loading state
+    event.preventDefault();
+    setError(null);
+    setLoading(true);
 
     try {
-      await login(email, password);
-      await fetchAndSetUser();
-      navigate("/home");
+      
+      const signInOutput= await DI.loginUseCase.login(email, password);
+   console.log(signInOutput);
+
+     const user = await DI.getUserUseCase.getUser();
+      setUser(user);
+      navigate("/home", { replace: true });
     } catch (err: any) {
       console.error(err);
       setError(err.message || "An error occurred during sign-in.");
     } finally {
-      setLoading(false); // Hide loading state
+      setLoading(false);
     }
   }
 
