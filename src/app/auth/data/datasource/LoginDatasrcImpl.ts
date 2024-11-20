@@ -2,17 +2,25 @@ import { signIn, signOut,  SignInOutput } from "aws-amplify/auth";
 import { LoginDatasource } from "./LoginDatasource";
 
 export class LoginDataSrcImpl implements LoginDatasource {
-  async login(username: string, password: string): Promise<SignInOutput> {
+  async login(username: string, password: string, role: string): Promise<SignInOutput> {
     try {
-      const signInOutput = await signIn({
-        username: username,
-        password: password,
-      }); // Sign in with AWS Cognito
-    
+      let signInOutput: SignInOutput; // Initialize the variable
+      
+      switch (role) {
+        case "Student":
+          signInOutput = await signIn({ username, password });
+          break;
+        case "Staff":
+          signInOutput = await signIn({ username, password });
+          break;
+        default:
+          throw new Error(`Invalid role: ${role}`);
+      }
+
       return signInOutput;
+
     } catch (err: any) {
-       throw new Error("LoginDataSrcImpl/login error " + err);
-       
+      throw new Error("LoginDataSrcImpl/login error " + err);
     }
   }
 
@@ -23,5 +31,4 @@ export class LoginDataSrcImpl implements LoginDatasource {
       throw new Error("LoginDataSrcImpl/logout error " + error);
     }
   }
-  
 }

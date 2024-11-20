@@ -11,9 +11,9 @@ export class LoginRepoImpl implements LoginRepository {
     this.datasource = _datasource;
   }
 
-  async login(username: string, password: string): Promise<SignInOutput> {
+  async login(username: string, password: string, role: string): Promise<SignInOutput> {
     try {
-      return await this.datasource.login(username, password);
+      return await this.datasource.login(username, password,role);
     } catch (error) {
       throw new Error("LoginRepoImpl/login error " + error);
     }

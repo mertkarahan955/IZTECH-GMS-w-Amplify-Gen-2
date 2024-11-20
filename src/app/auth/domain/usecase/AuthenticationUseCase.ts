@@ -8,9 +8,9 @@ export class Login {
     this.repository = _repository;
   }
 
-  async login( username: string, password: string): Promise<SignInOutput> {
+  async login( username: string, password: string, role: string): Promise<SignInOutput> {
     try {
-      return this.repository.login( username, password);
+      return this.repository.login( username, password, role);
     } catch (error) {
       throw new Error("Login/login error " + error);
       
