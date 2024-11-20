@@ -1,5 +1,5 @@
-import { User } from "../../../../domain/Model/User";
-import { UserRepository } from "../../Repository/User/UserRepository";
+import { User } from "../../../auth/domain/entity/User";
+import { UserRepository } from "../repository/UserRepository";
 
 export class GetUser {
   repository: UserRepository;

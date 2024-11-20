@@ -1,7 +1,8 @@
 
 import { fetchUserAttributes } from "aws-amplify/auth";
 import { UserDatasource } from "./UserDatasource";
-import { User } from "../../../../domain/Model/User";
+import { User } from "../../../auth/domain/entity/User";
+
 
 export default class UserDatasrscImpl implements UserDatasource {
   async getUser(): Promise<User> {

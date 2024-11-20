@@ -1,4 +1,5 @@
-import { User } from "../../../domain/Model/User";
+import { User } from "../../../auth/domain/entity/User";
+
 
 export interface UserDatasource {
   getUser() : Promise<User>;
