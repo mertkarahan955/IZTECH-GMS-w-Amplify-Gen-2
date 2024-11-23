@@ -1,5 +1,5 @@
 
-import { fetchUserAttributes, getCurrentUser } from "aws-amplify/auth";
+import { fetchUserAttributes} from "aws-amplify/auth";
 import { UserDatasource } from "./UserDatasource";
 import { User } from "../../../auth/domain/entity/User";
 

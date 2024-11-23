@@ -1,5 +1,4 @@
 
-import Drawer from "../../../core/components/Drawer/Drawer";
 import ReviewCard from "../../../core/components/ReviewCard/ReviewCard";
 import styles from "./AdvisorHome.module.css";
 
@@ -39,13 +38,3 @@ const AdvisorHome: React.FC = () => {
 export default AdvisorHome;
 
 
-const AdvisorDrawer = () => (
-  <Drawer
-
-    navLinks={[
-      { label: "Dashboard", href: "/advisor-dashboard" },
-      { label: "Review Requests", href: "/review-requests" },
-      { label: "Reports", href: "/reports" },
-    ]}
-  />
-);
