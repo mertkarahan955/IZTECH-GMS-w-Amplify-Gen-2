@@ -6,22 +6,22 @@ specifies that any user authenticated via an API key can "create", "read",
 "update", and "delete" any "Todo" records.
 =========================================================================*/
 const schema = a.schema({
-    Student: a.model({
-      studentId: a.id().required(),
-      name: a.string(),
-      email: a.string(),
-      profile: a.string(), // user type
-      graduationRequests: a.hasMany("GraduationRequest", "graduationRequestId"), 
-      advisorId: a.belongsTo("Advisor", "advisorId")
-    }),
+    // Student: a.model({
+    //   studentId: a.id().required(),
+    //   name: a.string(),
+    //   email: a.string(),
+    //   profile: a.string(), // user type
+    //   graduationRequests: a.hasMany("GraduationRequest", "graduationRequestId"), 
+    //   advisorId: a.belongsTo("Advisor", "advisorId")
+    // }),
 
-    Advisor: a.model({
-      advisorId: a.id().required(),
-      name: a.string(),
-      email: a.string(),
-      profile: a.string(), // user type
-      studentsId : a.hasMany("Student", "studentId"),
-    }),
+    // Advisor: a.model({
+    //   advisorId: a.id().required(),
+    //   name: a.string(),
+    //   email: a.string(),
+    //   profile: a.string(), // user type
+    //   studentsId : a.hasMany("Student", "studentId"),
+    // }),
     
     GraduationRequest: a.model({
       owners: a.string().array(),
