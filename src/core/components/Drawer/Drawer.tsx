@@ -1,37 +1,53 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./Drawer.module.css";
 
 import Logo from "../../../../public/assets/iztech-logo.png";
 import { DI } from "../../injection/DependencyInjection";
 
-const Drawer: React.FC = () => {
+interface DrawerProps {
+  navLinks: { label: string; href: string }[];
+}
+
+const Drawer: React.FC<DrawerProps> = ({ navLinks}) => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    try {
-      await DI.signOutUseCase.logout(); // Perform the logout logic
-      navigate("/", { replace: true }); // Redirect to login page
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
+  try {
+    await localStorage.clear();
+    await DI.signOutUseCase.logout();
+    navigate("/login");
+  } catch (error) {
+    
+  }
   };
 
   return (
     <div className={styles.drawer}>
+      {/* Logo Section */}
       <div className={styles.logo}>
         <img src={Logo} alt="Logo" />
         <h2>Graduation Management System</h2>
       </div>
+
+      {/* Navigation Links */}
       <nav className={styles.nav}>
-        <a href="#">Dashboard</a>
-        <a href="#">Graduation Requests</a>
-        <a href="#">Schedule</a>
-        <a href="#">Clearance</a>
-        <a href="#">FAQ</a>
+        {navLinks.map((link, index) => (
+          <NavLink
+          key={index}
+          to={link.href}
+          className={({ isActive }) =>
+            `${styles.navLink} ${isActive ? styles.active : ""}`
+          }
+        >
+          {link.label}
+        </NavLink>
+        ))}
       </nav>
-      <button className={styles.logoutButton} onClick={handleLogout}>
-        Log Out
+
+      {/* Logout Button */}
+      <button onClick={handleLogout} className={styles.logoutButton}>
+        Logout
       </button>
     </div>
   );

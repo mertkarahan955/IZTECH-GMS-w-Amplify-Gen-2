@@ -1,0 +1,54 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #fff8cc !important; /* Force the background color */
+}
+
+.ongoing {
+  background: #fff8cc;
+  border-left: 4px solid #ffc107;
+}
+
+.declined {
+  background: #ffe6e6;
+  border-left: 4px solid #dc3545;
+}
+
+.status {
+  margin: 1rem 0;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.approveButton {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.declineButton {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.approveButton:hover {
+  background-color: #45a049;
+}
+
+.declineButton:hover {
+  background-color: #e53935;
+}

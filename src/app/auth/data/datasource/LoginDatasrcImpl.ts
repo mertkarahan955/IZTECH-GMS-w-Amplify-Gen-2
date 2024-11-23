@@ -4,6 +4,7 @@ import { LoginDatasource } from "./LoginDatasource";
 export class LoginDataSrcImpl implements LoginDatasource {
   async login(username: string, password: string, role: string): Promise<SignInOutput> {
     try {
+      
       let signInOutput: SignInOutput; // Initialize the variable
       
       switch (role) {

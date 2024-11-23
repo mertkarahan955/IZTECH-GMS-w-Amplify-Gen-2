@@ -8,7 +8,7 @@ export default function App() {
   return (
     <UserProvider>
       <Router>
-        <AppRoutes />
+        <AppRoutes/>
       </Router>
     </UserProvider>
   );

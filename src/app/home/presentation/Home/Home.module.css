@@ -1,61 +1,39 @@
 .container {
   display: flex;
-  height: 100vh; /* Ensure the entire layout takes up the full viewport height */
-  width: 100vw; /* Ensure it spans the full width of the screen */
-}
-
-.drawer {
-  width: 250px; /* Fixed width for the drawer */
-  background-color: #800000;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  height: 100vh;
+  width: 80vw;
 }
 
 .content {
-  flex: 1; /* Fill the remaining space */
-  display: flex;
-  flex-direction: column;
-}
-
-.header {
-  background-color: #800000;
-  color: white;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 80px; /* Fixed height for the header */
-}
-
-.main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 1rem;
-  background-color: #f9f9f9;
-  overflow: hidden; /* Prevent scrolling */
+}
+
+.main {
+  padding: 20px;
 }
 
 .createButton {
-  background: black;
+  background-color: #4caf50;
   color: white;
-  padding: 1rem 2rem;
   border: none;
+  padding: 10px 15px;
   border-radius: 5px;
-  margin-bottom: 2rem;
+  font-size: 1rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.requests h2 {
-  text-align: left;
-  margin-bottom: 1rem;
+.createButton:hover {
+  background-color: #45a049;
 }
 
 .requests {
-  overflow-y: hidden; /* Ensure no scrollbars appear */
+  margin-top: 20px;
 }
 
+.requests h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}

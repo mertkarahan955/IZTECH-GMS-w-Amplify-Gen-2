@@ -9,6 +9,7 @@ import { DI } from "../../../../core/injection/DependencyInjection";
 import { useUser } from "../../../../core/contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
+
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -25,16 +26,26 @@ const Login: React.FC = () => {
     setLoading(true);
 
     try {
+      // Call the login use case with email, password, and role
       const signInOutput = await DI.loginUseCase.login(email, password, role);
 
       console.log("Login Output:", signInOutput);
       console.log("Selected Role:", role);
 
+      // Fetch user details and set in UserContext
       const user = await DI.getUserUseCase.getUser();
-      setUser({ ...user, profile: role }); // Assign role dynamically
-      navigate("/home", { replace: true });
+
+      setUser({ ...user, profile: role  }); // Add role to user object
+
+      
+      // Navigate based on role
+      if (user.profile === "Student") {
+        navigate("/home", { replace: true }); // Navigate to student home
+      } else if (user.profile === "Advisor") {
+        navigate("/advisor-home", { replace: true }); // Navigate to staff home
+      }
     } catch (err: any) {
-      console.error(err);
+      console.error("Login Error:", err);
       setError(err.message || "An error occurred during sign-in.");
     } finally {
       setLoading(false);
@@ -57,15 +68,15 @@ const Login: React.FC = () => {
             Student
           </button>
           <button
-            className={`${styles.tab} ${role === "University Staff" ? styles.activeTab : ""}`}
-            onClick={() => setRole("University Staff")}
+            className={`${styles.tab} ${role === "Staff" ? styles.activeTab : ""}`}
+            onClick={() => setRole("Staff")}
           >
             University Staff
           </button>
         </div>
 
         {/* E-Devlet Button */}
-        <button className={styles.edevletButton}>
+        <button onClick={() => DI.signOutUseCase.logout()} className={styles.edevletButton}>
           <img src={EdevletIcon} alt="E-Devlet" />
           Log in with E-Devlet
         </button>
@@ -76,7 +87,6 @@ const Login: React.FC = () => {
 
         {/* Login Form */}
         <form onSubmit={handleSubmit}>
-          {/* Email Field */}
           <InputField
             label="Your email"
             type="email"
@@ -84,7 +94,6 @@ const Login: React.FC = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
 
-          {/* Password Field */}
           <PasswordField
             label="Your password"
             value={password}
@@ -93,7 +102,6 @@ const Login: React.FC = () => {
 
           {error && <p className={styles.error}>{error}</p>}
 
-          {/* Submit Button */}
           <button
             type="submit"
             className={`${styles.loginButton} ${

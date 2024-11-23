@@ -1,0 +1,57 @@
+.card {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff8cc;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.approvals {
+  margin: 1rem 0;
+}
+
+.approvalRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.office {
+  font-weight: bold;
+  color: #555;
+}
+
+.approval {
+  color: #333;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.dateTime {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.status {
+  font-weight: bold;
+  color: #ff9800;
+}
+
+.requestButton {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.requestButton:hover {
+  background-color: #333;
+}
