@@ -28,7 +28,7 @@ const schema = a.schema({
       graduationRequestId: a.id().required(),
       title: a.string(),
       status: a.enum(["ACCEPTED, ONGOING, REJECTED"]), 
-      studentId : a.belongsTo("Student", "studentId"),
+      //studentId : a.belongsTo("Student", "studentId"),
 
     }).authorization((allow) => allow.ownersDefinedIn("owners"))
 });
