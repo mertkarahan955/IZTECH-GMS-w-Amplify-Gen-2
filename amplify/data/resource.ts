@@ -27,7 +27,7 @@ const schema = a.schema({
       owners: a.string().array(),
       graduationRequestId: a.id().required(),
       title: a.string(),
-      status: a.enum(["ACCEPTED, ONGOING, REJECTED"]), 
+      status: a.enum(["ACCEPTED,ONGOING,REJECTED"]), 
       //studentId : a.belongsTo("Student", "studentId"),
 
     }).authorization((allow) => allow.ownersDefinedIn("owners"))
