@@ -120,7 +120,7 @@ const Login: React.FC = () => {
     className={`${styles.textButton}`}
     onClick={() => navigate('/validate-diploma')}
   >
-    Check Your Validated Diploma
+    Check Validated Diploma
   </button>
 </div>
       </div>

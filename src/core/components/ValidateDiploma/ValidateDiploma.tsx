@@ -24,9 +24,9 @@ const ValidateDiploma: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Validate Your Diploma</h1>
+      <h1 className={styles.title}>Validate Diploma</h1>
       <p className={styles.description}>
-        Enter your diploma details below to validate its authenticity.
+        Enter the diploma details below to validate its authenticity.
       </p>
 
       <div className={styles.form}>
