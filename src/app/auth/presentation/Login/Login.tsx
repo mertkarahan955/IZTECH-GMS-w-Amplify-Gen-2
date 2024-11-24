@@ -9,7 +9,6 @@ import { DI } from "../../../../core/injection/DependencyInjection";
 import { useUser } from "../../../../core/contexts/UserContext";
 import { useNavigate } from "react-router-dom";
 
-
 const Login: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,9 +34,8 @@ const Login: React.FC = () => {
       // Fetch user details and set in UserContext
       const user = await DI.getUserUseCase.getUser();
 
-      setUser({ ...user, profile: role  }); // Add role to user object
+      setUser({ ...user, profile: role }); // Add role to user object
 
-      
       // Navigate based on role
       if (user.profile === "Student") {
         navigate("/home", { replace: true }); // Navigate to student home
@@ -62,13 +60,17 @@ const Login: React.FC = () => {
         {/* TabBar for Role Selection */}
         <div className={styles.tabBar}>
           <button
-            className={`${styles.tab} ${role === "Student" ? styles.activeTab : ""}`}
+            className={`${styles.tab} ${
+              role === "Student" ? styles.activeTab : ""
+            }`}
             onClick={() => setRole("Student")}
           >
             Student
           </button>
           <button
-            className={`${styles.tab} ${role === "Staff" ? styles.activeTab : ""}`}
+            className={`${styles.tab} ${
+              role === "Staff" ? styles.activeTab : ""
+            }`}
             onClick={() => setRole("Staff")}
           >
             University Staff
@@ -112,6 +114,15 @@ const Login: React.FC = () => {
             {loading ? "Signing in..." : "Log in"}
           </button>
         </form>
+{/* Check Diploma Button */}
+<div className={styles.checkDiplomaContainer}>
+  <button
+    className={`${styles.textButton}`}
+    onClick={() => navigate('/validate-diploma')}
+  >
+    Check Your Validated Diploma
+  </button>
+</div>
       </div>
     </div>
   );

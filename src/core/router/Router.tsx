@@ -8,6 +8,7 @@ import CreateGraduationRequest from "../../app/home/presentation/GraduationReque
 import Layout from "../components/Layout/Layout";
 import Clearance from "../../app/clearance/presentation/Clearance";
 import WriteLetter from "../../app/advisor-home/presentation/WriteLetter/WriteLetter";
+import ValidateDiploma from "../components/ValidateDiploma/ValidateDiploma";
 
 // PrivateRoute Component for protecting routes and role-based navigation
 const PrivateRoute: React.FC<{ children: JSX.Element; role?: string }> = ({ children, role }) => {
@@ -38,6 +39,7 @@ const AppRoutes: React.FC = () => {
     <Routes>
       {/* Public Route */}
       <Route path="/" element={<Login />} />
+      <Route path= "validate-diploma" element={<ValidateDiploma/>}/>
 
       {/* Private Routes */}
       <Route
