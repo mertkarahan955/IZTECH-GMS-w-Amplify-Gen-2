@@ -1,8 +1,11 @@
 
+import { useNavigate } from "react-router-dom";
 import ReviewCard from "../../../core/components/ReviewCard/ReviewCard";
 import styles from "./AdvisorHome.module.css";
 
 const AdvisorHome: React.FC = () => {
+  const navigate = useNavigate();
+  
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -16,7 +19,7 @@ const AdvisorHome: React.FC = () => {
               time="14:31"
               status="Ongoing"
               details="Spring'25 Graduation Request"
-              onApprove={() => alert("Request Approved")}
+              onApprove={()=> navigate("/write-letter")}
               onDecline={() => alert("Request Declined")}
             />
             <ReviewCard

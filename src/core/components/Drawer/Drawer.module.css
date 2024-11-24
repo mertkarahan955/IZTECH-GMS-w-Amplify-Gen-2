@@ -2,10 +2,32 @@
   background-color: #800000;
   color: white;
   height: 100vh;
-  width: 15vw;
+  width: 15vw; /* Adjust width to ensure enough space */
   display: flex;
   flex-direction: column;
   padding: 1rem;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+}
+
+.logo {
+  display: flex;
+  flex-direction: column; /* Stack the logo image and text vertically */
+  align-items: center; /* Center align the content */
+  gap: 0.5rem; /* Add spacing between image and title */
+  margin-bottom: 2rem; /* Create space below the logo section */
+}
+
+.logo img {
+  max-width: 80px; /* Resize the logo image */
+  height: auto;
+}
+
+.logo h2 {
+  color: #ffffff;
+  font-size: 1rem; /* Adjust font size for better fit */
+  text-align: center; /* Center align the text */
+  line-height: 1.2; /* Adjust line spacing */
+  word-wrap: break-word; /* Ensure text wraps correctly */
 }
 
 .nav {
@@ -20,6 +42,7 @@
   font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  transition: background-color 0.3s ease;
 }
 
 .navLink:hover {
@@ -39,4 +62,9 @@
   padding: 0.5rem 1rem;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logoutButton:hover {
+  background-color: #ffe6e6;
 }

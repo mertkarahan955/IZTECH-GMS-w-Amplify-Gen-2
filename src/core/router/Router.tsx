@@ -7,6 +7,7 @@ import AdvisorHome from "../../app/advisor-home/presentation/AdvisorHome";
 import CreateGraduationRequest from "../../app/home/presentation/GraduationRequest/GraduationRequest";
 import Layout from "../components/Layout/Layout";
 import Clearance from "../../app/clearance/presentation/Clearance";
+import WriteLetter from "../../app/advisor-home/presentation/WriteLetter/WriteLetter";
 
 // PrivateRoute Component for protecting routes and role-based navigation
 const PrivateRoute: React.FC<{ children: JSX.Element; role?: string }> = ({ children, role }) => {
@@ -72,6 +73,11 @@ const AppRoutes: React.FC = () => {
             </PrivateRoute>
           }
         />
+        <Route path ="write-letter" element = {
+          <PrivateRoute role="Staff">
+            <WriteLetter/>
+          </PrivateRoute>
+        }/>
         <Route path= "clearance" element= {
           <PrivateRoute role="Student">
             <Clearance/>

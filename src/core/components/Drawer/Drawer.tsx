@@ -14,7 +14,7 @@ const Drawer: React.FC<DrawerProps> = ({ navLinks}) => {
 
   const handleLogout = async () => {
   try {
-    await localStorage.clear();
+    localStorage.clear();
     await DI.signOutUseCase.logout();
     navigate("/login");
   } catch (error) {

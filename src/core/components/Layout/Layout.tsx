@@ -9,9 +9,8 @@ import { useUser } from "../../contexts/UserContext";
 
 
 const Layout: React.FC = () => {
-  const { user } = useUser(); // Kullanıcı bilgilerini alın
+  const { user } = useUser(); 
 
-  // Kullanıcının türüne göre farklı navLinks belirleyin
   const navLinks =
     user?.profile === "Student"
       ? [
@@ -24,7 +23,7 @@ const Layout: React.FC = () => {
           { label: "Home", href: "/advisor-home" },
           { label: "Review Requests", href: "/review-requests" },
         ]
-      : []; // Varsayılan boş linkler
+      : []; 
 
   return (
     <div className={styles.layoutContainer}>
