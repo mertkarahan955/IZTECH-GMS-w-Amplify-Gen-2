@@ -2,7 +2,7 @@ import { signIn, signOut,  SignInOutput } from "aws-amplify/auth";
 import { LoginDatasource } from "./LoginDatasource";
 
 export class LoginDataSrcImpl implements LoginDatasource {
-  async login(username: string, password: string, role: string): Promise<SignInOutput> {
+  async login(username: string, password: string): Promise<SignInOutput> {
     try {
       
       let signInOutput: SignInOutput; // Initialize the variable

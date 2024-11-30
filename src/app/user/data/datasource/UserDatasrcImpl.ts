@@ -2,15 +2,12 @@
 import { fetchUserAttributes} from "aws-amplify/auth";
 import { UserDatasource } from "./UserDatasource";
 import { User } from "../../../auth/domain/entity/User";
-import { generateClient } from 'aws-amplify/data';
-
-import { type Schema } from '../../../../../amplify/data/resource';
-import { GraduationRequest, RequestStatus } from "../../../../core/data/GraduationRequest/GraduationRequest";
+import { GraduationRequest} from "../../../../core/data/GraduationRequest/GraduationRequest";
 import { mockGraduationRequests } from "../../../../core/data/mock/MockData";
 
 
 
-const client = generateClient<Schema>();
+// const client = generateClient<Schema>();
 export default class UserDatasrscImpl implements UserDatasource {
   async getUser(): Promise<User> {
     try {
@@ -99,24 +96,24 @@ export default class UserDatasrscImpl implements UserDatasource {
 // } 
 
 
-function transformLetters(
-  letters: any
-): Partial<Record<"advisor" | "secretary" | "dean" | "affairs", string>> {
-  if (
-    typeof letters === "object" &&
-    letters !== null &&
-    !Array.isArray(letters)
-  ) {
-    // Filter valid keys and ensure values are strings
-    const validKeys = ["advisor", "secretary", "dean", "affairs"];
-    return Object.keys(letters)
-      .filter((key) => validKeys.includes(key) && typeof letters[key] === "string")
-      .reduce((acc, key) => {
-        acc[key as "advisor" | "secretary" | "dean" | "affairs"] = letters[key];
-        return acc;
-      }, {} as Partial<Record<"advisor" | "secretary" | "dean" | "affairs", string>>);
-  }
+// function transformLetters(
+//   letters: any
+// ): Partial<Record<"advisor" | "secretary" | "dean" | "affairs", string>> {
+//   if (
+//     typeof letters === "object" &&
+//     letters !== null &&
+//     !Array.isArray(letters)
+//   ) {
+//     // Filter valid keys and ensure values are strings
+//     const validKeys = ["advisor", "secretary", "dean", "affairs"];
+//     return Object.keys(letters)
+//       .filter((key) => validKeys.includes(key) && typeof letters[key] === "string")
+//       .reduce((acc, key) => {
+//         acc[key as "advisor" | "secretary" | "dean" | "affairs"] = letters[key];
+//         return acc;
+//       }, {} as Partial<Record<"advisor" | "secretary" | "dean" | "affairs", string>>);
+//   }
 
-  // Return an empty object if invalid
-  return {};
-}
+//   // Return an empty object if invalid
+//   return {};
+// }
