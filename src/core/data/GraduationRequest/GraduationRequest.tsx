@@ -10,7 +10,7 @@ export class GraduationRequest {
   studentName: string;
   title: string;
   currentHandler: Role;
-  letters: Partial<Record<"advisor" | "secretary" | "dean" | "affairs", string>>;
+  letters: Partial<Record<"student"|"advisor" | "secretary" | "dean" | "affairs", string>>;
   status: RequestStatus;
 
   constructor(
@@ -18,7 +18,7 @@ export class GraduationRequest {
     studentName: string,
     title: string,
     currentHandler: Role,
-    letters: Partial<Record<"advisor" | "secretary" | "dean" | "affairs", string>> = {},
+    letters: Partial<Record<"student" |"advisor" | "secretary" | "dean" | "affairs", string>> = {},
     status:   RequestStatus = RequestStatus.Pending
   ) {
     this.id = id;

@@ -17,13 +17,16 @@ const AffairsHome: React.FC = () => {
   );
 
   const handleApprove = (request: GraduationRequest) => {
+    console.log(request.letters);
     navigate("/write-letter", {
+      
       state: {
         requestId: request.id,
         title: request.title,
         details: request.studentName,
         role: "Affairs",
         nextHandler: "Affairs", // Pass the next handler for the request
+        letters: request.letters,
       },
     });
   };

@@ -4,6 +4,8 @@ import { UserDatasource } from "./UserDatasource";
 import { User } from "../../../auth/domain/entity/User";
 import { GraduationRequest} from "../../../../core/data/GraduationRequest/GraduationRequest";
 import { mockGraduationRequests } from "../../../../core/data/mock/MockData";
+import { ClearanceRequest } from "../../../../core/data/ClearanceRequest/ClearanceRequest";
+import { mockClearanceRequests } from "../../../../core/data/mock/MockClearance";
 
 
 
@@ -42,6 +44,26 @@ export default class UserDatasrscImpl implements UserDatasource {
       throw  new Error("UserDatasrscImpl/createGraduationRequest error " + error); 
     }
 
+  }
+
+  async createClearanceRequest ( newClearanceRequest: ClearanceRequest ): Promise<ClearanceRequest> {
+    try {
+       const clearanceRequest = new ClearanceRequest(
+        newClearanceRequest.id,
+        newClearanceRequest.studentName,
+        newClearanceRequest.title,
+        newClearanceRequest.departmentStatuses,
+        newClearanceRequest.status,
+        newClearanceRequest.createdAt,
+        newClearanceRequest.updatedAt
+       
+     
+      );
+      mockClearanceRequests.push(clearanceRequest);
+      return  clearanceRequest;
+    } catch (error) {
+      throw  new Error("UserDatasrscImpl/createClearanceRequest error " + error); 
+    }
   }
 }
 

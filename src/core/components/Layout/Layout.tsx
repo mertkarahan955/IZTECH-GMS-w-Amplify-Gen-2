@@ -15,14 +15,13 @@ const Layout: React.FC = () => {
     user?.profile === "Student"
       ? [
           { label: "Home", href: "/home" },
-          {label: "Create Graduation Request", href: "/create-graduation-request"},
-          {label: "Create Clearance Request", href: "/create-clearance-request"},
           { label: "Clearance", href: "/clearance" },
         ]
-      : user?.profile === "Staff"
+      : user?.profile === "Affairs"
       ? [
-          { label: "Home", href: "/advisor-home" },
-          { label: "Review Requests", href: "/review-requests" },
+          { label: "See Graduation List", href: "/advisor-home" },
+          { label: "See Beraat Belgeleri", href: "/review-requests" },
+          { label: "See Graduation Certificates", href: "/review-requests" }
         ]
       : []; 
 

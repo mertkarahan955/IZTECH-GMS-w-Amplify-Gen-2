@@ -3,6 +3,7 @@ import { LoginRepoImpl } from "../../app/auth/data/repository/LoginRepoImpl";
 import { Login, Logout } from "../../app/auth/domain/usecase/AuthenticationUseCase";
 import UserDatasrscImpl from "../../app/user/data/datasource/UserDatasrcImpl";
 import { UserRepoImpl } from "../../app/user/data/repository/UserRepoImpl";
+import { CreateClearanceRequest } from "../../app/user/domain/usecase/CreateClearanceRequest";
 import { CreateGraduationRequest } from "../../app/user/domain/usecase/CreateGraduationRequest";
 import { GetUser } from "../../app/user/domain/usecase/GetUser";
 
@@ -19,6 +20,7 @@ const userDatasource = new UserDatasrscImpl();
 const userRepository = new UserRepoImpl(userDatasource);
 const getUserUseCase = new GetUser(userRepository);
 const createGraduationRequest   = new CreateGraduationRequest(userRepository);
+const createClearanceRequest  = new CreateClearanceRequest(userRepository);
 
 
 
@@ -27,5 +29,6 @@ export const DI = {
   signOutUseCase,
   loginUseCase,
   getUserUseCase,
-  createGraduationRequest
+  createGraduationRequest,
+  createClearanceRequest
 };

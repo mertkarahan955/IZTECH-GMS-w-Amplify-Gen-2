@@ -27,6 +27,7 @@ const DeanHome: React.FC = () => {
         details: request.studentName,
         role: "Dean",
         nextHandler: "Student Affairs", // Pass the next handler for the request
+        letters: request.letters,
       },
     });
   };
@@ -42,7 +43,6 @@ const DeanHome: React.FC = () => {
   return (
     <div className={styles.container}>
     <div>
-      <h1>Dean Dashboard</h1>
       <RequestReview
         userRole="Dean"
         requests={deanRequests}

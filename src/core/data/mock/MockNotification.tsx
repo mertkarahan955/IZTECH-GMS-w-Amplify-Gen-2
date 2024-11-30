@@ -43,7 +43,7 @@ export const mockNotifications: LocalNotification[] = [
   {
     id: "3",
     title: "Graduation Request Received",
-    description: "Advisor has sent a graduation request to you.",
+    description: "Secretary has sent a graduation request to you.",
     timestamp: new Date().toISOString(),
     type: NotificationType.GraduationRequest,
     read: false,
@@ -57,5 +57,14 @@ export const mockNotifications: LocalNotification[] = [
     type: NotificationType.Approval,
     read: false,
     receiverType: "Affairs", // Notification for Student Affairs
+  },
+  {
+    id: "5",
+    title: "Graduation Declined",
+    description: "Your graduation request has been declined by Dean.",
+    timestamp: new Date().toISOString(),
+    type: NotificationType.Rejection,
+    read: false,
+    receiverType: "Student", // Notification for Student Affairs
   },
 ];

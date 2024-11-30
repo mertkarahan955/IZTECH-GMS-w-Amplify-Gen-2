@@ -1,3 +1,4 @@
+import { ClearanceRequest } from "../../../../core/data/ClearanceRequest/ClearanceRequest";
 import { GraduationRequest } from "../../../../core/data/GraduationRequest/GraduationRequest";
 import { User } from "../../../auth/domain/entity/User";
 import { UserRepository } from "../../domain/repository/UserRepository";
@@ -21,6 +22,14 @@ export class UserRepoImpl implements UserRepository {
       return await this.datasource.createGraduationRequest( newGraduationRequest );
     } catch (error) {
       throw new Error("UserRepoImpl/createGraduationRequest error " + error);
+    }
+  }
+
+  async createClearanceRequest( newClearanceRequest: ClearanceRequest ): Promise<ClearanceRequest | null> {
+    try {
+      return await this.datasource.createClearanceRequest( newClearanceRequest );
+    } catch (error) {
+      throw new Error("UserRepoImpl/createClearanceRequest error " + error);
     }
   }
 }

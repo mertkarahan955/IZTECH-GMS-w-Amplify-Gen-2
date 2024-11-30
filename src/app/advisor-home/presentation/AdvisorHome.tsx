@@ -24,6 +24,7 @@ const AdvisorHome: React.FC = () => {
         details: request.studentName,
         role: "Advisor",
         nextHandler: "Secretary", // Pass the next handler for the request
+        letters: request.letters,
       },
     });
   };

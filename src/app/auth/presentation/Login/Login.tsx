@@ -60,6 +60,11 @@ const Login: React.FC = () => {
             break;
         }
       }
+      else if(role === "Organizations"){
+       
+          navigate("/organizations-home", { replace: true });
+        
+      }
     } catch (err: any) {
       console.error("Login Error:", err);
       setError(err.message || "An error occurred during sign-in.");
@@ -92,6 +97,14 @@ const Login: React.FC = () => {
             onClick={() => setRole("Staff")}
           >
             University Staff
+          </button>
+          <button
+            className={`${styles.tab} ${
+              role === "Organizations" ? styles.activeTab : ""
+            }`}
+            onClick={() => setRole("Organizations")}
+          >
+            Organizations
           </button>
         </div>
 

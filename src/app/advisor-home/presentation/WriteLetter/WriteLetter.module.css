@@ -83,3 +83,28 @@ input[type="text"] {
 .submitButton:hover {
   background-color: #660000;
 }
+.lettersSection {
+  margin-top: 20px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.lettersSection h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.lettersSection ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.lettersSection li {
+  margin-bottom: 15px;
+}
+
+.lettersSection li p {
+  margin: 5px 0 0;
+  font-size: 0.9rem;
+  color: #555;
+}

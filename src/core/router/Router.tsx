@@ -13,6 +13,7 @@ import CreateClearanceRequest from "../../app/home/presentation/ClearanceRequest
 import SecretaryHome from "../../app/secretary-home/presentation/SecretaryHome";
 import DeanHome from "../../app/dean-home/presentation/DeanHome";
 import AffairsHome from "../../app/affairs-home/presentation/AffairsHome";
+import OrganizationsHome from "../../app/organizations-home/presentation/OrganizationsHome";
 
 // PrivateRoute Component for protecting routes and role-based navigation
 const PrivateRoute: React.FC<{ children: JSX.Element; role?: string }> = ({ children, role }) => {
@@ -64,18 +65,6 @@ const AppRoutes: React.FC = () => {
           }
         />
         <Route
-          path="create-graduation-request"
-          element={
-            <PrivateRoute role="Student">
-              <CreateGraduationRequest />
-            </PrivateRoute>
-          }
-        />
-        <Route path="create-clearance-request" 
-          element={<PrivateRoute role="Student" > 
-          <CreateClearanceRequest /> 
-          </PrivateRoute>} />
-        <Route
           path="advisor-home"
           element={
             <PrivateRoute role="Advisor">
@@ -118,6 +107,12 @@ const AppRoutes: React.FC = () => {
           </PrivateRoute>
         }/>
       </Route>
+
+      <Route path= "organizations-home" element = {
+        <PrivateRoute>
+          <OrganizationsHome/>
+        </PrivateRoute>
+      }></Route>
 
       {/* Catch-All Redirect */}
       <Route path="*" element={<Navigate to="/" replace />} />
