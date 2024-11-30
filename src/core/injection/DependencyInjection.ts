@@ -3,6 +3,7 @@ import { LoginRepoImpl } from "../../app/auth/data/repository/LoginRepoImpl";
 import { Login, Logout } from "../../app/auth/domain/usecase/AuthenticationUseCase";
 import UserDatasrscImpl from "../../app/user/data/datasource/UserDatasrcImpl";
 import { UserRepoImpl } from "../../app/user/data/repository/UserRepoImpl";
+import { CreateGraduationRequest } from "../../app/user/domain/usecase/CreateGraduationRequest";
 import { GetUser } from "../../app/user/domain/usecase/GetUser";
 
 
@@ -17,10 +18,14 @@ const signOutUseCase = new Logout(loginRepository);
 const userDatasource = new UserDatasrscImpl();
 const userRepository = new UserRepoImpl(userDatasource);
 const getUserUseCase = new GetUser(userRepository);
+const createGraduationRequest   = new CreateGraduationRequest(userRepository);
+
+
 
 // Export initialized dependencies
 export const DI = {
   signOutUseCase,
   loginUseCase,
-  getUserUseCase
+  getUserUseCase,
+  createGraduationRequest
 };

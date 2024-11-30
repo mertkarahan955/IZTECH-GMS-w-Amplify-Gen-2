@@ -9,6 +9,10 @@ import Layout from "../components/Layout/Layout";
 import Clearance from "../../app/clearance/presentation/Clearance";
 import WriteLetter from "../../app/advisor-home/presentation/WriteLetter/WriteLetter";
 import ValidateDiploma from "../components/ValidateDiploma/ValidateDiploma";
+import CreateClearanceRequest from "../../app/home/presentation/ClearanceRequest/ClearanceRequest";
+import SecretaryHome from "../../app/secretary-home/presentation/SecretaryHome";
+import DeanHome from "../../app/dean-home/presentation/DeanHome";
+import AffairsHome from "../../app/affairs-home/presentation/AffairsHome";
 
 // PrivateRoute Component for protecting routes and role-based navigation
 const PrivateRoute: React.FC<{ children: JSX.Element; role?: string }> = ({ children, role }) => {
@@ -67,16 +71,44 @@ const AppRoutes: React.FC = () => {
             </PrivateRoute>
           }
         />
+        <Route path="create-clearance-request" 
+          element={<PrivateRoute role="Student" > 
+          <CreateClearanceRequest /> 
+          </PrivateRoute>} />
         <Route
           path="advisor-home"
           element={
-            <PrivateRoute role="Staff">
+            <PrivateRoute role="Advisor">
               <AdvisorHome />
             </PrivateRoute>
           }
         />
+        <Route
+          path="secretary-home"
+          element={
+            <PrivateRoute role="Secretary">
+              <SecretaryHome />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="dean-home"
+          element={
+            <PrivateRoute role="Dean">
+              <DeanHome />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="affairs-home"
+          element={
+            <PrivateRoute role="Affairs">
+              <AffairsHome />
+            </PrivateRoute>
+          }
+        />
         <Route path ="write-letter" element = {
-          <PrivateRoute role="Staff">
+          <PrivateRoute>
             <WriteLetter/>
           </PrivateRoute>
         }/>

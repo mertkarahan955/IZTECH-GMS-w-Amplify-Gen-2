@@ -1,6 +1,7 @@
 .layoutContainer {
   display: flex;
-  height: 100vh;
+  height:  100vh;
+
 }
 
 .content {
@@ -11,6 +12,7 @@
 }
 
 .main {
+  height: 92vh;
   flex: 1;
   padding: 20px;
   overflow-y: auto;

@@ -16,6 +16,7 @@ const Layout: React.FC = () => {
       ? [
           { label: "Home", href: "/home" },
           {label: "Create Graduation Request", href: "/create-graduation-request"},
+          {label: "Create Clearance Request", href: "/create-clearance-request"},
           { label: "Clearance", href: "/clearance" },
         ]
       : user?.profile === "Staff"

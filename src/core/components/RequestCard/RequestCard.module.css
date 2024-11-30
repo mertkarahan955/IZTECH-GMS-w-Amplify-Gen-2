@@ -6,6 +6,10 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.accepted {
+  background: #fff8cc;
+  border-left: 4px solid green;
+}
 .ongoing {
   background: #fff8cc;
   border-left: 4px solid #ffc107;

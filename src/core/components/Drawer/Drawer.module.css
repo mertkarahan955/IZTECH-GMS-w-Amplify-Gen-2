@@ -1,7 +1,7 @@
 .drawer {
   background-color: #800000;
   color: white;
-  height: 100vh;
+  
   width: 15vw; /* Adjust width to ensure enough space */
   display: flex;
   flex-direction: column;

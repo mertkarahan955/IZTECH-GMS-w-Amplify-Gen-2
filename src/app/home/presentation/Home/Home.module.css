@@ -15,9 +15,10 @@
 }
 
 .createButton {
-  background-color: #4caf50;
+  background-color: #a71414;
   color: white;
   border: none;
+  margin-right: 30px;
   padding: 10px 15px;
   border-radius: 5px;
   font-size: 1rem;
@@ -26,7 +27,7 @@
 }
 
 .createButton:hover {
-  background-color: #45a049;
+  background-color: #a71414;
 }
 
 .requests {

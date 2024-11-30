@@ -26,7 +26,7 @@ const Login: React.FC = () => {
 
     try {
       // Call the login use case with email, password, and role
-      const signInOutput = await DI.loginUseCase.login(email, password, role);
+      const signInOutput = await DI.loginUseCase.login(email, password,role);
 
       console.log("Login Output:", signInOutput);
       console.log("Selected Role:", role);
@@ -34,13 +34,31 @@ const Login: React.FC = () => {
       // Fetch user details and set in UserContext
       const user = await DI.getUserUseCase.getUser();
 
-      setUser({ ...user, profile: role }); // Add role to user object
+      setUser({ ...user}); // Add role to user object
 
       // Navigate based on role
       if (user.profile === "Student") {
         navigate("/home", { replace: true }); // Navigate to student home
-      } else if (user.profile === "Advisor") {
-        navigate("/advisor-home", { replace: true }); // Navigate to staff home
+      } else if (role === "Staff") {
+        switch (user.profile) {
+          case "Advisor":
+            navigate("/advisor-home", { replace: true });
+            break;
+          case "Secretary":
+            navigate("/secretary-home", { replace: true });
+            break;
+          case "Dean":
+            navigate("/dean-home", { replace: true });
+            break;
+          case "Affairs":
+            navigate("/affairs-home", { replace: true });
+            break;
+        
+          default:
+            console.log("Invalid role:", user.profile);
+            navigate("/", { replace: true });
+            break;
+        }
       }
     } catch (err: any) {
       console.error("Login Error:", err);

@@ -1,59 +1,57 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+
 import styles from "./WriteLetter.module.css";
+import { updateRequestHandler } from "../../../../core/data/GraduationRequest/GraduationRequest";
+
 
 const WriteLetter: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { title, details } = location.state || {}; // Get data from navigation
-  
+  const { requestId, title, details, role, nextHandler } = location.state;
+
   const [letter, setLetter] = useState("");
   const [signature, setSignature] = useState("");
 
   const handleSubmit = () => {
-    // Add logic to submit the letter
-    alert("Letter submitted: " + "\nLetter:" + letter + "\nSignature: " + signature);
-    
-    navigate("/advisor-home"); // Navigate back to the home page after submission
+    // Simulate letter submission and update request
+    updateRequestHandler(requestId, nextHandler, role, letter);
+
+    alert(`Letter submitted for ${details} by ${role}.`);
+
+    // Navigate back to the home page
+    navigate(-1);
   };
 
   return (
     <div className={styles.container}>
-      <h2>Graduation Request</h2>
+      <h2>Graduation Request - Write Letter</h2>
       <p>
-        <strong>Student Info:</strong> {details || "300201050"}
+        <strong>Student:</strong> {details}
       </p>
       <p>
-        <strong>Graduation Title:</strong> {title || "2025 Graduation Request"}
+        <strong>Request Title:</strong> {title}
       </p>
-      <p className={styles.link}>Student Transcript</p>
 
-      <div className={styles.letterSection}>
-        <h3>Graduation Application Letter</h3>
-        <textarea
-          placeholder="Start typing Application Letter to Department Secretary"
-          value={letter}
-          onChange={(e) => setLetter(e.target.value)}
-          maxLength={5000}
-        />
-        <p>{letter.length}/5000</p>
-
-        <input
-          type="text"
-          placeholder="Add E-Signature"
-          value={signature}
-          onChange={(e) => setSignature(e.target.value)}
-        />
-      </div>
-
-      <div className={styles.actions}>
-        <button className={styles.backButton} onClick={() => navigate(-1)}>
-          Back
-        </button>
-        <button className={styles.submitButton} onClick={handleSubmit}>
-          Proceed
-        </button>
-      </div>
+      <textarea
+        placeholder={`Write a letter as ${role}`}
+        value={letter}
+        onChange={(e) => setLetter(e.target.value)}
+        maxLength={5000}
+      />
+      <input
+        type="text"
+        placeholder="Add E-Signature"
+        value={signature}
+        onChange={(e) => setSignature(e.target.value)}
+      />
+      <div className ={styles.actions}>
+        <button className={styles.backButton} onClick={() => navigate(-1)}> Cancel</button>
+      
+      <button className={styles.submitButton} onClick={handleSubmit}>
+        Submit Letter
+      </button></div>
+      
     </div>
   );
 };

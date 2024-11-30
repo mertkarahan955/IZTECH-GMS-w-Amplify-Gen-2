@@ -30,7 +30,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({
       <p className={styles.Ongoing}>Status: {status}</p>
       <div className={styles.actions}>
         <button className={styles.approveButton} onClick={onApprove}>
-          Approve
+          Review 
         </button>
         <button className={styles.declineButton} onClick={onDecline}>
           Decline

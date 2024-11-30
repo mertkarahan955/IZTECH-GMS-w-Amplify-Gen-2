@@ -1,0 +1,75 @@
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Adjust the width based on the button or container */
+}
+
+/* Dropdown Button Styling */
+.dropdownButton {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  text-align: left; /* Align text for dropdown button */
+  transition: background-color 0.3s ease;
+}
+
+.dropdownButton:hover {
+  background-color: #0056b3;
+}
+
+/* Dropdown Menu Styling */
+.dropdownMenu {
+  position: absolute; /* Place relative to the dropdown container */
+  top: calc(100% + 5px); /* Align below the button with spacing */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%; /* Match the width of the dropdown container */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  z-index: 1000; /* Ensure it appears above other elements */
+  display: none; /* Initially hidden */
+  flex-direction: column; /* Stack menu items vertically */
+  opacity: 0; /* Initially transparent */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Show Menu on Hover */
+.dropdown:hover .dropdownMenu {
+  display: flex; /* Show the menu */
+  opacity: 1; /* Fully opaque */
+  visibility: visible; /* Ensure visibility */
+}
+
+/* Dropdown Items */
+.dropdownItem {
+  padding: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-align: left; /* Align text to the left */
+}
+
+.dropdownItem:hover {
+  background-color: #f0f0f0; /* Light gray on hover */
+  color: #0056b3; /* Blue hover text */
+}
+
+/* Ensure Responsiveness */
+@media (max-width: 768px) {
+  .dropdownButton {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .dropdownItem {
+    font-size: 12px;
+    padding: 8px;
+  }
+}

@@ -24,13 +24,14 @@ const schema = a.schema({
     // }),
     
     GraduationRequest: a.model({
-      owners: a.string().array(),
-      graduationRequestId: a.id().required(),
+      studentName : a.string(),
       title: a.string(),
-      status: a.enum(["ACCEPTED,ONGOING,REJECTED"]), 
-      //studentId : a.belongsTo("Student", "studentId"),
-
-    }).authorization((allow) => allow.ownersDefinedIn("owners"))
+      currentRole: a.enum(["Advisor", "Secretary", "Dean", "Affairs"]),
+      letters: a.json(),
+      status: a.enum(["PENDING", "ACCEPTED", "REJECTED"]),
+      
+      
+    }).authorization((allow) => allow.authenticated())
 });
 
 export type Schema = ClientSchema<typeof schema>;

@@ -1,0 +1,99 @@
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  font-size: 28px;
+  color: #333;
+}
+
+.requestsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.requestCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.requestDetails h2 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.requestDetails p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Status Styles */
+.statusPending {
+  color: #f39c12; /* Orange for pending */
+}
+
+.statusApproved {
+  color: #27ae60; /* Green for approved */
+}
+
+.statusRejected {
+  color: #e74c3c; /* Red for rejected */
+}
+
+/* Action Buttons */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.approveButton {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.approveButton:hover {
+  background-color: #219653;
+}
+
+.rejectButton {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.rejectButton:hover {
+  background-color: #c0392b;
+}
+
+.emptyMessage {
+  font-size: 16px;
+  color: #888;
+  text-align: center;
+}

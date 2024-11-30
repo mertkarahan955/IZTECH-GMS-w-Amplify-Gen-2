@@ -7,17 +7,8 @@ export class LoginDataSrcImpl implements LoginDatasource {
       
       let signInOutput: SignInOutput; // Initialize the variable
       
-      switch (role) {
-        case "Student":
-          signInOutput = await signIn({ username, password });
-          break;
-        case "Staff":
-          signInOutput = await signIn({ username, password });
-          break;
-        default:
-          throw new Error(`Invalid role: ${role}`);
-      }
-
+      signInOutput = await signIn({ username, password});
+      console.log("signInOutput:", signInOutput);
       return signInOutput;
 
     } catch (err: any) {
