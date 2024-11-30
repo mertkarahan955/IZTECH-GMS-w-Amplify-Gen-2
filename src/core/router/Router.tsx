@@ -4,16 +4,17 @@ import { useUser } from "../contexts/UserContext";
 import Login from "../../app/auth/presentation/Login/Login";
 import Home from "../../app/home/presentation/Home/Home";
 import AdvisorHome from "../../app/advisor-home/presentation/AdvisorHome";
-import CreateGraduationRequest from "../../app/home/presentation/GraduationRequest/GraduationRequest";
 import Layout from "../components/Layout/Layout";
 import Clearance from "../../app/clearance/presentation/Clearance";
 import WriteLetter from "../../app/advisor-home/presentation/WriteLetter/WriteLetter";
 import ValidateDiploma from "../components/ValidateDiploma/ValidateDiploma";
-import CreateClearanceRequest from "../../app/home/presentation/ClearanceRequest/ClearanceRequest";
 import SecretaryHome from "../../app/secretary-home/presentation/SecretaryHome";
 import DeanHome from "../../app/dean-home/presentation/DeanHome";
 import AffairsHome from "../../app/affairs-home/presentation/AffairsHome";
 import OrganizationsHome from "../../app/organizations-home/presentation/OrganizationsHome";
+import ReviewClearance from "../../app/organizations-home/presentation/ReviewClearance";
+import GraduationList from "../../app/affairs-home/presentation/GraduationList";
+import BeraatBelgesiList, {groupedStudents} from "../../app/affairs-home/presentation/BeraatBelgesi";
 
 // PrivateRoute Component for protecting routes and role-based navigation
 const PrivateRoute: React.FC<{ children: JSX.Element; role?: string }> = ({ children, role }) => {
@@ -56,6 +57,28 @@ const AppRoutes: React.FC = () => {
         }
       >
         {/* Child Routes inside the Layout */}
+        <Route path= "organizations-home" element = {
+        <PrivateRoute>
+          <OrganizationsHome/>
+        </PrivateRoute>
+      }/>
+        
+        <Route path= "review-clearance" element = {
+        <PrivateRoute>
+          <ReviewClearance/>
+        </PrivateRoute>
+      }/>
+
+        <Route path= "graduation-list" element = {
+        <PrivateRoute>
+          <GraduationList/>
+        </PrivateRoute>
+      }/>
+      <Route path= "beraat-belgesi" element = {
+        <PrivateRoute>
+          <BeraatBelgesiList groupedStudents={groupedStudents}/>
+        </PrivateRoute>
+      }/>
         <Route
           path="home"
           element={
@@ -107,13 +130,6 @@ const AppRoutes: React.FC = () => {
           </PrivateRoute>
         }/>
       </Route>
-
-      <Route path= "organizations-home" element = {
-        <PrivateRoute>
-          <OrganizationsHome/>
-        </PrivateRoute>
-      }></Route>
-
       {/* Catch-All Redirect */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

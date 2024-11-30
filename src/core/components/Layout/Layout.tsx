@@ -10,6 +10,7 @@ import { useUser } from "../../contexts/UserContext";
 
 const Layout: React.FC = () => {
   const { user } = useUser(); 
+  console.log(user?.profile);
 
   const navLinks =
     user?.profile === "Student"
@@ -18,12 +19,15 @@ const Layout: React.FC = () => {
           { label: "Clearance", href: "/clearance" },
         ]
       : user?.profile === "Affairs"
-      ? [
-          { label: "See Graduation List", href: "/advisor-home" },
-          { label: "See Beraat Belgeleri", href: "/review-requests" },
-          { label: "See Graduation Certificates", href: "/review-requests" }
+      ? [ 
+        { label: "Home", href: "/affairs-home" },
+          { label: "See Graduation List", href: "/graduation-list" },
+          { label: "See Beraat Belgeleri", href: "/beraat-belgesi" },
+          
         ]
-      : []; 
+      : user?.profile === "Library" ? [
+        { label: "See Graduation List", href: "/organizations-home"},
+      ]: [];
 
   return (
     <div className={styles.layoutContainer}>

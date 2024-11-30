@@ -1,0 +1,65 @@
+.container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  width: 80vw;
+  border-radius: 8px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.libraryData {
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.libraryData p {
+  margin: 5px 0;
+}
+
+.actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content:center;
+}
+
+.approveButton {
+  padding: 10px 20px;
+  background-color: #28a745;
+  margin-right: 10px; ;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.approveButton:hover {
+  background-color: #218838;
+}
+
+.denyButton {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  margin-left: 10px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.denyButton:hover {
+  background-color: #c82333;
+}

@@ -8,7 +8,7 @@ import { DI } from "../../../core/injection/DependencyInjection";
 
 
 const Clearance: React.FC = () => {
-  const [clearanceRequests, setClearanceRequests] = useState(mockClearanceRequests); // State for clearance requests
+  const [clearanceRequests] = useState(mockClearanceRequests); // State for clearance requests
   const createGraduationRequest = DI.createClearanceRequest;
   const handleClearanceRequest = () => {
     const req = new ClearanceRequest(

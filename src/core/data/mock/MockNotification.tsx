@@ -67,4 +67,13 @@ export const mockNotifications: LocalNotification[] = [
     read: false,
     receiverType: "Student", // Notification for Student Affairs
   },
+  {
+    id: "5",
+    title: "Clearance Process",
+    description: "Your clearance request has been processed by Library.",
+    timestamp: new Date().toISOString(),
+    type: NotificationType.General,
+    read: false,
+    receiverType: "Student", // Notification for Student Affairs
+  },
 ];
